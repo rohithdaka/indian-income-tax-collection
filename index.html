@@ -18,8 +18,14 @@ body {
 }
 
 </style>
-<body>
 <script src="//d3js.org/d3.v3.min.js"></script>
+
+<h1> Indian Income Tax Collection </h1> 
+<body>
+  <h2> Total Tax Revenue by category</h2>
+  <svg id="taxcategory"> </svg>
+  <h2> Total Tax Revenue by State </h2>
+  <svg id="stateWide"></svg>
 <script>
 
 var margin = {top: 20, right: 20, bottom: 30, left: 100},
@@ -36,7 +42,7 @@ var y = d3.scale.linear()
     .domain([0,1500000])
     .range([height, 0]);
 
-var color = d3.scale.category20();
+var color = d3.scale.category10();
 
 var xAxis = d3.svg.axis()
     .scale(x)
@@ -54,7 +60,7 @@ var area = d3.svg.area()
 var stack = d3.layout.stack()
     .values(function(d) { return d.values; });
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#taxcategory")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
