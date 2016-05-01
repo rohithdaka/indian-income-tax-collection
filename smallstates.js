@@ -1,4 +1,4 @@
-var margin2 = {top: 90, right: 100, bottom: 50, left: 80},
+var margin2 = {top: 90, right: 100, bottom: 0, left: 80},
     width2 = 720 - margin2.left - margin2.right,
     height2 = 700 - margin2.top - margin2.bottom;
 
@@ -16,7 +16,6 @@ var xAxis2 = d3.svg.axis()
 
 var yAxis2 = d3.svg.axis()
     .scale(y2)
-    .ticks(10)
     .orient("left");
 
 var smallStates = d3.select("#smallStates").append("svg")
@@ -73,7 +72,7 @@ d3.csv("smallstatesdata.csv", function(error, data) {
     .enter().append("rect")
       .attr("width", x2.rangeBand())
       .attr("y", function(d) { return y2(d.y0); })
-      .attr("height", function(d) { return y2(d.y0) + y2(d.y1); })
+      .attr("height", function(d) { return -y2(d.y0) + y2(d.y1); })
       .style("fill", function(d) { return color2(d.name); });
 
   var legend = smallStates.selectAll(".legend")

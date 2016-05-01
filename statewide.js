@@ -73,7 +73,7 @@ d3.csv("statedata.csv", function(error, data) {
     .enter().append("rect")
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.y0); })
-      .attr("height", function(d) { return y(d.y0) + y(d.y1); })
+      .attr("height", function(d) { return -y(d.y0) + y(d.y1); })
       .style("fill", function(d) { return color(d.name); });
 
   var legend = svg.selectAll(".legend")
