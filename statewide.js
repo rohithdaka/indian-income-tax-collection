@@ -1,6 +1,6 @@
 var margin = {top: 90, right: 100, bottom: 20, left: 80},
     width = 720 - margin.left - margin.right,
-    height = 100000 - margin.top - margin.bottom;
+    height = 500 - margin.top - margin.bottom;
 
 var x = d3.scale.ordinal()
     .rangeRoundBands([0, width], .1);
@@ -16,7 +16,7 @@ var xAxis = d3.svg.axis()
 
 var yAxis = d3.svg.axis()
     .scale(y)
-    .ticks(1000)
+    .ticks(10)
     .orient("left");
 
 var svg = d3.select("#stateWide").append("svg")
