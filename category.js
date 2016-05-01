@@ -36,7 +36,7 @@ var categoryChart = d3.select("#taxcategory").append("svg")
 .append("g")
 .attr("transform", "translate(" + margin_c.left + "," + margin_c.top + ")");
 
-d3.csv("data1.csv", function(error, data) {
+d3.csv("categorydata.csv", function(error, data) {
   if (error) throw error;
 
   color_c.domain(d3.keys(data[0]).filter(function(key) { return key !== "date"; }));
